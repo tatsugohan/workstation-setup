@@ -1,0 +1,15 @@
+ - name: install packages
+   dnf: name={{item}} state=installed
+   with_items:
+    - nano
+    - docker
+    - git
+    - htop
+
+ # Docker
+ - name: enable docker
+   service:
+    name: docker
+    state: started
+    enabled: yes
+
