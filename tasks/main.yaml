@@ -2,9 +2,17 @@
    dnf: name={{item}} state=installed
    with_items:
     - nano
-    - docker
+    - vim
+    - ipython
     - git
     - htop
+
+ - name: virtualisation and automation
+   dnf: name={{item}} state=installed
+   with_items:
+    - docker
+    - vagrant
+    - VirtualBox
 
  # Docker
  - name: enable docker
