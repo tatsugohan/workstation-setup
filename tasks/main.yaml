@@ -6,6 +6,7 @@
     - ipython
     - git
     - htop
+    - keepass
 
  - name: virtualisation and automation
    dnf: name={{item}} state=installed
@@ -13,6 +14,7 @@
     - docker
     - vagrant
     - VirtualBox
+    - akmod-VirtualBox
 
  # Docker
  - name: enable docker
