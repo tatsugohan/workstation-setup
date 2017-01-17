@@ -12,3 +12,4 @@
       raw: dnf install -y python2 python2-dnf libselinux-python libsemanage-python python2-firewall
     - include: tasks/main.yaml
     - include: tasks/chrome-fedora25.yaml
+    - include: tasks/psycopg2.yaml
