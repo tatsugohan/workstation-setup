@@ -1,0 +1,19 @@
+# workstation.yml
+#
+# Ansible playbook for workstation configuration
+#
+#
+
+- name: Workstation Setup
+  hosts: 127.0.0.1
+  user: root
+  tasks:
+
+    - name: install python and deps for ansible modules
+      raw: dnf install -y python2 python2-dnf libselinux-python libsemanage-python python2-firewall
+
+    - include: tasks/main.yml
+    - include: tasks/chrome-fedora25.yml
+    - include: tasks/automationTools.yml
+    - include: tasks/psycopg2.yml
+

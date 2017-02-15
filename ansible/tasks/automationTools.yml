@@ -1,0 +1,22 @@
+ - name: sysadmin tools
+   dnf: name={{item}} state=installed
+   with_items:
+    - htop
+    - ntop
+    - nmap
+
+ - name: virtualisation and automation
+   dnf: name={{item}} state=installed
+   with_items:
+    - docker
+    - vagrant
+    - VirtualBox
+    - akmod-VirtualBox
+
+ # Docker
+ - name: enable docker
+   service:
+    name: docker
+    state: started
+    enabled: yes
+

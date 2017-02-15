@@ -1,0 +1,22 @@
+ - name: get Fedora current Release
+   command: rpm -E %fedora
+   register: fedoraRelease
+
+ - name: install the rpmfusion repo packages
+   dnf: name={{ item }}
+    state=present
+   with_items:
+     - http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ fedoraRelease['stdout'] }}.noarch.rpm
+     - http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ fedoraRelease['stdout'] }}.noarch.rpm
+
+ - name: install Google Chrome repo
+   copy: src=google-chrome.repo dest=/etc/yum.repos.d/
+
+ - name: import Google Chrome signing key
+   rpm_key: key=https://dl-ssl.google.com/linux/linux_signing_key.pub state=present
+
+ - name: install packages
+   dnf: name={{item}} state=installed
+   with_items:
+    - google-chrome-stable
+
