@@ -2,9 +2,13 @@
    dnf: name={{item}} state=installed
    with_items:
     - nano
-    - vim
     - ipython
     - git
+
+ - name: install edition packages
+   dnf: name={{item}} state=installed
+   with_items:
     - keepass
+    - dropbox
     - calibre 
     - inkscape
