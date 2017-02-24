@@ -4,11 +4,19 @@
 #
 #
 
+- name: User Specific
+  hosts: 127.0.0.1
+  become: true
+  become_user: gohan
+  tasks:
+     - name: get dropbox
+       raw:  cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzvf -
+
+
 - name: Workstation Setup
   hosts: 127.0.0.1
   user: root
   tasks:
-
     - name: install python and deps for ansible modules
       raw: dnf install -y python2 python2-dnf libselinux-python libsemanage-python python2-firewall
 
