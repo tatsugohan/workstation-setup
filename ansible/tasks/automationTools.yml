@@ -29,9 +29,20 @@
 
 
  # Docker
+ - group:
+    name: docker
+    state: present
+
  - name: enable docker
    service:
     name: docker
     state: started
     enabled: yes
 
+ - name: pull docker images
+   docker_image:
+    name: {{item}}
+    with_items:
+     - nginx
+     - jenkins 
+   
