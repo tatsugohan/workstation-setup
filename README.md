@@ -5,11 +5,7 @@ utilisation de ansible pour réaliser toute la configuration post-install d'une 
 
 ## Usage
 
-installation des pre-requis sous root
-```
-dnf -y install ansible
-
-```
+installation des pre-requis sous root : détaillé dans le fichier REQUIREMENTS.MD
 
 execution du playbook
 ```
