@@ -52,7 +52,7 @@ Vagrant.configure("2") do |config|
   #   vb.gui = true
   #
   #   # Customize the amount of memory on the VM:
-    vb.memory = "1024"
+    vb.memory = "2048"
     vb.name = "MyFedora"
   end
   #
@@ -70,6 +70,13 @@ Vagrant.configure("2") do |config|
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
   config.vm.provision "shell", inline: <<-SHELL
+     echo "create a test user"
+     useradd gohan
+     passwd gohan <<-EOF
+     sdfsdfsdf2
+     sdfsdfsdf2
+     EOF
+
      echo "COPY ANSIBLE PLAYBOOKS"
      cp -r /vagrant/ansible/* /home/vagrant
      echo "INSTALL PYTHON 2"

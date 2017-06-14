@@ -1,6 +1,7 @@
  - name: install edition packages
    dnf: name={{item}} state=installed
    with_items:
+    - wget
     - nano
     - ipython
     - git

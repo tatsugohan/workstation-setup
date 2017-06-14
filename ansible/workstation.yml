@@ -4,17 +4,8 @@
 #
 #
 
-- name: User Specific
-  hosts: 127.0.0.1
-  become: true
-  become_user: gohan
-  tasks:
-     - name: get dropbox
-       raw:  cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzvf -
-
-
 - name: Workstation Setup
-  hosts: 127.0.0.1
+  hosts: localhost
   user: root
   tasks:
     - name: install python and deps for ansible modules
@@ -24,4 +15,13 @@
     - include: tasks/chrome-fedora25.yml
     - include: tasks/automationTools.yml
     - include: tasks/psycopg2.yml
+
+
+- name: User Specific
+  hosts: localhost
+  become: true
+  become_user: gohan
+  tasks:
+     - name: get dropbox
+       raw:  cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzvf -
 
