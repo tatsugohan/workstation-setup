@@ -15,7 +15,7 @@ Vagrant.configure("2") do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
-  config.vm.box = "fedora/24-cloud-base"
+  config.vm.box = "fedora/25-cloud-base"
   config.vm.define "MyFedora" 
 
   # Disable automatic box update checking. If you disable this, then
@@ -71,10 +71,10 @@ Vagrant.configure("2") do |config|
   # documentation for more information about their specific syntax and use.
   config.vm.provision "shell", inline: <<-SHELL
      echo "create a test user"
-     useradd gohan
-     passwd gohan <<-EOF
-     sdfsdfsdf2
-     sdfsdfsdf2
+     useradd testuser
+     passwd testuser <<-EOF
+sdfsdfsdf2
+sdfsdfsdf2
      EOF
 
      echo "COPY ANSIBLE PLAYBOOKS"
