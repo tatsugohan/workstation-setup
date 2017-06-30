@@ -37,16 +37,44 @@ manual tests ! (sic)
 ## TESTS with Vagrant - Fedora workstation
 1. download fedora iso from fedora download portal
 2. install it manually in virtualbox with the following specifications 
-	- 2048 RAM 
-	- 20 Go of hard disk
-	- install fedora on hard disk
-	- do not encrypt the disk (otherwise vagrant won't be able to boot it)
-	- setup a root password
-	- create a testuser
+	https://blog.engineyard.com/2014/building-a-vagrant-box
+	- create a virtual box
+		- Name : Fedora-template
+		- 2048 RAM 
+		- 20 Go of hard disk
+                - port forwarding : [Name: SSH, Protocol: TCP, Host IP: blank, Host Port: 2222, Guest IP: blank, Guest Port: 22] 
+	- add fedora iso in CDROM
+		- install fedora on hard disk
+		- do not encrypt the disk (otherwise vagrant won't be able to boot it)
+		- setup a root password
+		- create a testuser
+	  eject fedora iso in CDROM
+	- reboot (to the freshly installed fedora)
 	- under root account 
 		dnf upgrade
+		# activate nopasword for wheel users
+	 	sed -i -e 's/%wheel\tALL=(ALL)\tALL/#%wheel\tALL=(ALL)\tALL/' /etc/sudoers 
+                sed -i -e 's/# %wheel\tALL=(ALL)\tNOPASSWD: ALL/%wheel\tALL=(ALL)\tNOPASSWD: ALL/p' /etc/sudoers 
 
+		useradd vagrant -G wheel
+		mkdir -p /home/vagrant/.ssh
+		chmod 0700 /home/vagrant/.ssh
+		wget https://raw.github.com/mitchellh/vagrant/master/keys/vagrant.pub -O /home/vagrant/.ssh/authorized_keys
+ 		chmod 0600 /home/vagrant/.ssh/authorized_keys
+		chown -R vagrant /home/vagrant/.ssh
+		systemctl enable sshd		
 
+	- add virtualbox tools (menu peripherique) 
+        - shutdown -h now
 
-
-
+3. convert the virtual box to vagrant box 
+        https://www.vagrantup.com/docs/virtualbox/boxes.html
+	# note:  requires at least 4Gb of disk in /tmp	
+	mkdir /tmp/vagrant-box
+	cd /tmp/vagrant-box
+	vagrant package --base Federa-template --output Fedora-template-25.box
+	vagrant box list
+	vagrant box remove fedora25-workstation
+        vagrant box add --name "Fedora25-workstation" --provider virtualbox ./Fedora-template-25.box
+	cd ..
+	rm -fr ./vagrant-box
