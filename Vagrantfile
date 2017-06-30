@@ -1,7 +1,6 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-# use virtualbox as default provider
 ENV['VAGRANT_DEFAULT_PROVIDER'] = 'virtualbox'
 
 # All Vagrant configuration is done below. The "2" in Vagrant.configure
@@ -15,18 +14,17 @@ Vagrant.configure("2") do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
-  config.vm.box = "fedora/25-cloud-base"
-  config.vm.define "MyFedora" 
-
+  config.vm.box = "Fedora25-workstation"
+  config.vm.define = "TEST-Build-Workstation"
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
   # `vagrant box outdated`. This is not recommended.
-  config.vm.box_check_update = false
+  # config.vm.box_check_update = false
 
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
-  #config.vm.network "forwarded_port", guest: 22, host: 2222
+  # config.vm.network "forwarded_port", guest: 80, host: 8080
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
@@ -49,11 +47,12 @@ Vagrant.configure("2") do |config|
   #
   config.vm.provider "virtualbox" do |vb|
   #   # Display the VirtualBox GUI when booting the machine
-  #   vb.gui = true
+      vb.gui = true
+      vb.name = "TEST-Build-Workstation"
+  # Disable automatic box update checking. If you disable this, then
   #
   #   # Customize the amount of memory on the VM:
-    vb.memory = "2048"
-    vb.name = "MyFedora"
+      vb.memory = "2048"
   end
   #
   # View the documentation for the provider you are using for more
@@ -69,26 +68,8 @@ Vagrant.configure("2") do |config|
   # Enable provisioning with a shell script. Additional provisioners such as
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
-  config.vm.provision "shell", inline: <<-SHELL
-     echo "create a test user"
-     useradd testuser
-     passwd testuser <<-EOF
-sdfsdfsdf2
-sdfsdfsdf2
-     EOF
-
-     echo "COPY ANSIBLE PLAYBOOKS"
-     cp -r /vagrant/ansible/* /home/vagrant
-     echo "INSTALL PYTHON 2"
-     #apt-get update
-     #dnf -y install httpd
-     dnf -y install python
-     echo "INSTALL PYTHON 2 ... done"
-  SHELL
-  #
-  # App provisioning with Ansible
-  #
-  config.vm.provision "ansible_local" do |ansible|
-	ansible.playbook = "ansible/workstation.yml"
-  end
+  # config.vm.provision "shell", inline: <<-SHELL
+  #   apt-get update
+  #   apt-get install -y apache2
+  # SHELL
 end
