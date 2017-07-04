@@ -65,6 +65,10 @@ manual tests ! (sic)
 		systemctl enable sshd		
 
 	- add virtualbox tools (menu peripherique) 
+		https://www.if-not-true-then-false.com/2010/install-virtualbox-guest-additions-on-fedora-centos-red-hat-rhel/
+		dnf install gcc kernel-devel kernel-headers dkms make bzip2 perl
+		ln -sf /usr/lib/VBoxGuestAdditions/mount.vboxsf /sbin/mount.vboxsf
+		
         - shutdown -h now
 
 3. convert the virtual box to vagrant box 
@@ -72,7 +76,7 @@ manual tests ! (sic)
 	# note:  requires at least 4Gb of disk in /tmp	
 	mkdir /tmp/vagrant-box
 	cd /tmp/vagrant-box
-	vagrant package --base Federa-template --output Fedora-template-25.box
+	vagrant package --base Fedora-template --output Fedora-template-25.box
 	vagrant box list
 	vagrant box remove fedora25-workstation
         vagrant box add --name "Fedora25-workstation" --provider virtualbox ./Fedora-template-25.box
