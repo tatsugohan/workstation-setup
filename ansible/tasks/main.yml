@@ -1,3 +1,7 @@
+ - name: get Fedora current Release
+   command: rpm -E %fedora
+   register: fedoraRelease
+ 
  - name: install the rpmfusion repo packages
    dnf: name={{ item }}
     state=present
