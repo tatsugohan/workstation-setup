@@ -20,7 +20,7 @@
     - akmod-VirtualBox
 
  - name: register virtualisation modules
-   command: akmods --kernels 4.8.6-300.fc25.x86_64 
+   command: akmods --kernels {{ currentRelease['stdout'] }}
  
  - name: relaunch module service
    service:  
