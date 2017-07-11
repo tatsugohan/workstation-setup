@@ -5,7 +5,7 @@
      - http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ fedoraRelease['stdout'] }}.noarch.rpm
      - http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ fedoraRelease['stdout'] }}.noarch.rpm
 
- - name: install edition packages
+ - name: install dev packages
    dnf: name={{item}} state=installed
    with_items:
     - wget
@@ -20,3 +20,12 @@
     - dropbox
     - calibre 
     - inkscape
+ 
+    
+ - name: install admin packages
+   dnf: name={{item}} state=installed
+   with_items:
+    - htop
+    - ntop
+    - nmap
+    - setools-console
