@@ -15,6 +15,7 @@
     - include: tasks/chrome-fedora25.yml
     - include: tasks/automationTools.yml
     - include: tasks/psycopg2.yml
+    - include: tasks/repo.yml
 
 #
 #- name: User Specific
