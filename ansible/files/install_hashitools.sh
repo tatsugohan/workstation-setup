@@ -22,3 +22,10 @@ echo "INSTALL PACKER VERSION $TOOL_VERSION as packer.io (another tool named pack
 wget $URL -Opacker.zip
 unzip packer.zip
 mv packer /usr/bin/packer.io
+
+echo "**********************************************************************************"
+URL=$(curl -s https://www.vaultproject.io/downloads.html | grep linux_amd64.zip | cut -d\" -f2)
+TOOL_VERSION=$(echo $URL | cut -d_ -f2)
+echo "INSTALL VAULT VERSION $TOOL_VERSION "
+wget $URL -Ovault.zip
+unzip vault.zip -d /usr/bin
