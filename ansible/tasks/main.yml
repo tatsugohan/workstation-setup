@@ -1,3 +1,7 @@
+ - name: get Fedora current Release
+   command: rpm -E %fedora
+   register: fedoraRelease
+ 
  - name: install the rpmfusion repo packages
    dnf: name={{ item }}
     state=present
@@ -6,6 +10,14 @@
      - http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ fedoraRelease['stdout'] }}.noarch.rpm
 
  - name: install dev packages
+- name: install framework dev packages
+    - go
+    - jq
+    - jre
+    - javaws
+    - docker-compose
+
+ - name: install edition packages
    dnf: name={{item}} state=installed
    with_items:
     - wget
