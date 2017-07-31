@@ -12,6 +12,7 @@ require root account on host server:
 	echo 127.0.0.1 >> /etc/ansible/hosts
 	# add ssh key to the known_hosts
 	# connection test
+	ssh 127.0.0.1 
 	ansible all -m ping --ask-pass
 
 ## Usage
