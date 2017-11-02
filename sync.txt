@@ -1,0 +1,13 @@
+#
+# folder that should be backed up and restored 
+
+# non-critical data
+
+~/.gitconfig
+~/.bash_profile
+~/.mozilla/
+
+# critical data 
+
+~/.ssh/
+~/.aws/
