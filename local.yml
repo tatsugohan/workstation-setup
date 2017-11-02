@@ -8,8 +8,6 @@
   hosts: localhost
   user: root
   tasks:
-    - name: install python and deps for ansible modules
-
     - include: ansible/tasks/main.yml
     - include: ansible/tasks/chrome-fedora25.yml
     - include: ansible/tasks/automationTools.yml
