@@ -9,7 +9,6 @@
   user: root
   tasks:
     - name: install python and deps for ansible modules
-      raw: dnf install -y python2 python2-dnf libselinux-python libsemanage-python python2-firewall
 
     - include: ansible/tasks/main.yml
     - include: ansible/tasks/chrome-fedora25.yml
