@@ -15,14 +15,16 @@ require root account on host server:
 	ssh 127.0.0.1 
 	ansible all -m ping --ask-pass
 
-## Usage
+## Usage - with ansible-pull
+
+ansible-pull -d ansible -i 'localhost,' -U https://github.com/tatsugohan/workstation-setup.git --accept-host-key
 
 execution du playbook
 ```
 git clone https://github.com/tatsugohan/workstation-setup.git
 cd workstation-setup
 
-sudo ansible-playbook workstation.yaml
+sudo ansible-playbook local.yaml
 ```
 
 note: All of the following  steps require an internet connexion 
