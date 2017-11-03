@@ -30,7 +30,6 @@
    dnf: name={{item}} state=installed
    with_items:
     - keepass
-    - dropbox
     - calibre 
     - inkscape
  
