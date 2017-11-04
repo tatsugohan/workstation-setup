@@ -11,10 +11,10 @@
     - name: install python and deps for ansible modules
       raw: dnf install -y python2 python2-dnf libselinux-python libsemanage-python python2-firewall
 
-    - import_tasks: tasks/main.yml
-    - import_tasks: tasks/chrome-fedora25.yml
-    - import_tasks: tasks/automationTools.yml
-    - import_tasks: tasks/psycopg2.yml
-    - import_tasks: tasks/repo.yml
-    - import_tasks: tasks/dropbox.yml
+    - import_tasks: ansible/tasks/main.yml
+    - import_tasks: ansible/tasks/chrome-fedora25.yml
+    - import_tasks: ansible/tasks/automationTools.yml
+    - import_tasks: ansible/tasks/psycopg2.yml
+    - import_tasks: ansible/tasks/repo.yml
+    - import_tasks: ansible/tasks/dropbox.yml
 
