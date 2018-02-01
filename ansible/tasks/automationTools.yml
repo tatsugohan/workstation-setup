@@ -6,7 +6,6 @@
    dnf: name={{item}} state=installed
    with_items:
     - awscli
-    - docker
     - vagrant
     - kernel-devel-{{ currentRelease['stdout'] }}
     - VirtualBox
@@ -20,22 +19,3 @@
       name: systemd-modules-load.service
       state: restarted
 
-
- # Docker
- - group:
-    name: docker
-    state: present
-
- - name: enable docker
-   service:
-    name: docker
-    state: started
-    enabled: yes
-
-# - name: pull docker images
-#   docker_image:
-#    name: {{item}}
-#    with_items:
-#     - nginx
-#     - jenkins 
-#   

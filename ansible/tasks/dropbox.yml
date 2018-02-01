@@ -1,12 +1,16 @@
- - file: 
+ - file:
     path: /opt/dropbox
     state: directory
     mode: 0755
     owner: root
     group: users
 
-- name: install dropbox
-    tasks:
-     - name: get dropbox
-       raw:  cd ~ && curl -Lo dropbox-linux-x86_64.tar.gz https://www.dropbox.com/download?plat=lnx.x86_64 && tar xzfv dropbox-linux-x86_64.tar.gz --strip 1 -C /opt/dropbox
+ - name: download dropbox
+   command:  curl -Lo ~/dropbox-linux-x86_64.tar.gz https://www.dropbox.com/download?plat=lnx.x86_64
+
+ - name: install dropbox
+   command:  tar xzvf ~/dropbox-linux-x86_64.tar.gz --strip 1 -C /opt/dropbox
+
+ - name: cleanup dropbox
+   command:  rm ~/dropbox-linux-x86_64.tar.gz
 

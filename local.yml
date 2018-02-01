@@ -12,7 +12,8 @@
       raw: dnf install -y python2 python2-dnf libselinux-python libsemanage-python python2-firewall
 
     - import_tasks: ansible/tasks/main.yml
-    - import_tasks: ansible/tasks/chrome-fedora25.yml
+    - import_tasks: ansible/tasks/docker.yml
+    - import_tasks: ansible/tasks/chrome-fedora.yml
     - import_tasks: ansible/tasks/automationTools.yml
     - import_tasks: ansible/tasks/psycopg2.yml
     - import_tasks: ansible/tasks/repo.yml

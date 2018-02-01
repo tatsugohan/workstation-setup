@@ -1,5 +1,5 @@
  - name: install Google Chrome repo
-   copy: src=google-chrome.repo dest=/etc/yum.repos.d/
+   copy: src=additional-repo.repo dest=/etc/yum.repos.d/
 
  - name: import Google Chrome signing key
    rpm_key: key=https://dl-ssl.google.com/linux/linux_signing_key.pub state=present

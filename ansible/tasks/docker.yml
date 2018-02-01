@@ -1,0 +1,23 @@
+ - name: install docker repo
+   copy: src=additional-repo.repo dest=/etc/yum.repos.d/
+
+ - name: remove the fedora docker packages 
+   dnf: name={{item}} state=absent autoremove=yes
+   with_items:
+     - docker-common 
+     - docker-selinux 
+     - docker-engine-selinux
+     - docker-engine
+     - docker 
+ 
+ - name: install the docker-ce
+   dnf: 
+     name: docker-ce
+     state: present
+
+# - name: pull docker images
+#   docker_image:
+#    name: {{item}}
+#    with_items:
+#     - nginx
+#     - jenkins 

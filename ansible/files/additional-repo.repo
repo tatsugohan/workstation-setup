@@ -1,0 +1,16 @@
+[google-chrome]
+name=google-chrome
+baseurl=http://dl.google.com/linux/chrome/rpm/stable/x86_64
+enabled=1
+gpgcheck=1
+skip_if_unavailable = 1
+keepcache = 0
+
+[docker]
+name=docker-ce-stable
+baseurl=https://download.docker.com/linux/fedora/docker-ce.repo
+enabled=1
+gpgcheck=1
+skip_if_unavailable = 1
+keepcache = 0
+
