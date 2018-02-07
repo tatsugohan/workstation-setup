@@ -27,6 +27,7 @@
     - git
     - tig
     - tmux
+    - vim-enhanced
 
  - name: install edition packages
    dnf: name={{item}} state=installed
