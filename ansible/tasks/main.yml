@@ -20,10 +20,13 @@
  - name: install edition packages
    dnf: name={{item}} state=installed
    with_items:
+    - banner
     - wget
     - nano
     - ipython
     - git
+    - tig
+    - tmux
 
  - name: install edition packages
    dnf: name={{item}} state=installed
