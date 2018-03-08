@@ -16,7 +16,7 @@
     - jq
     - jre
     - javaws
-    - virtualenv
+    - python2-virtualenv
 
  - name: install edition packages
    dnf: name={{item}} state=installed
