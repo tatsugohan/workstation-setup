@@ -37,3 +37,7 @@ sh -c 'echo -e "[Atom]\nname=Atom Editor\nbaseurl=https://packagecloud.io/AtomEd
 - terragrunt
 - apex (require root access to deploy in /usr/local/bin/apex)
 curl https://raw.githubusercontent.com/apex/apex/master/install.sh | sh
+
+## install vim plug'ins
+git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
