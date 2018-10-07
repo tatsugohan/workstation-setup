@@ -9,15 +9,24 @@
      - docker-engine-selinux
      - docker-engine
      - docker 
- 
- - name: install the docker-ce
+
+ - name : docker repo 
    dnf: 
-     name: docker-ce
+     name: dnf-plugins-core
      state: present
 
+ - name: install docker repository
+   command: dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
+ 
+ - name: install docker
+   dnf: name="{{ item }}" state=present
+   with_items:
+    - docker-ce
+    - python-docker-py
+
 # - name: pull docker images
-#   docker_image:
-#    name: {{item}}
-#    with_items:
-#     - nginx
-#     - jenkins 
+#  docker_image:
+#   name: {{item}}
+#   with_items:
+#    - nginx
+#    - jenkins
