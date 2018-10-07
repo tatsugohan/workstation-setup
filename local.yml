@@ -9,7 +9,7 @@
   user: root
   tasks:
     - name: install python and deps for ansible modules
-      raw: dnf install -y python2 python2-dnf libselinux-python libsemanage-python python2-firewall
+      raw: dnf install -y python2 python2-dnf libselinux-python libsemanage-python
 
     - import_tasks: ansible/tasks/main.yml
     - import_tasks: ansible/tasks/docker.yml
