@@ -1,4 +1,7 @@
- - name: get current Release
+ - name: install google repo
+   copy: src=additional-repo.repo dest=/etc/yum.repos.d/
+
+- name: get current Release
    command: uname -r
    register: currentRelease
 
@@ -10,6 +13,18 @@
     - kernel-devel-{{ currentRelease['stdout'] }}
     - VirtualBox
     - akmod-VirtualBox
+ 
+ - name: google sdk
+   dnf: name={{item}} state=installed
+    - google-cloud-sdk
+    - google-cloud-sdk-app-engine-python
+    - google-cloud-sdk-app-engine-python-extras
+    - google-cloud-sdk-datalab
+    - google-cloud-sdk-datastore-emulator
+    - google-cloud-sdk-cbt
+    - google-cloud-sdk-cloud-build-local
+    - google-cloud-sdk-pubsub-emulator
+    - kubectl
 
  - name: register virtualisation modules
    command: akmods --kernels {{ currentRelease['stdout'] }}

@@ -5,9 +5,10 @@
 
 ~/.gitconfig
 ~/.bash_profile
-~/.mozilla/
 
 # critical data 
 
 ~/.ssh/
 ~/.aws/
+~/.mozilla/
+~/.config/google-chrome/

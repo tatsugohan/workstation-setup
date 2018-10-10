@@ -23,7 +23,9 @@ export PS1="[\$AWS_PROFILE] $PS1"
 
 ## install postman
 this operation has to be done in the user context
-https://dl.pstmn.io/download/latest/linux64
+mkdir -p ~/bin
+cd ~/bin
+wget https://dl.pstmn.io/download/latest/linux64 -O - | tar -xzvf -
 
 ## install atom
 rpm --import https://packagecloud.io/AtomEditor/atom/gpgkey
