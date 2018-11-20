@@ -1,0 +1,11 @@
+ - name: install MS Visual Code repo
+   copy: src=vscode.repo dest=/etc/yum.repos.d/
+
+ - name: import Google Chrome signing key
+   rpm_key: key=https://packages.microsoft.com/keys/microsoft.asc state=present
+
+ - name: install packages
+   dnf: name={{item}} state=installed
+   with_items:
+    - code
+
