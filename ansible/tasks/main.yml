@@ -25,6 +25,7 @@
     - jre
     - javaws
     - python2-virtualenv
+    - powerline-fonts
 
  - name: install edition packages
    dnf: name={{item}} state=installed
