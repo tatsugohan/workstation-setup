@@ -46,3 +46,4 @@ copy and setup default configuration files  :
    - .gitignore_global  : http://egorsmirnov.me/2015/05/04/global-gitignore-file.html
    - .gitconfig
    - .bashrc
+   - .zshrc
