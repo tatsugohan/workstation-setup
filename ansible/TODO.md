@@ -41,3 +41,8 @@ curl https://raw.githubusercontent.com/apex/apex/master/install.sh | sh
 ## install vim plug'ins
 git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
+## copy user local files
+copy and setup default configuration files  :
+   - .gitignore_global  : http://egorsmirnov.me/2015/05/04/global-gitignore-file.html
+   - .gitconfig
+   - .bashrc
