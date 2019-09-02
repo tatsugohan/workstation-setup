@@ -1,7 +1,7 @@
  - name: install google repo
    copy: src=additional-repo.repo dest=/etc/yum.repos.d/
 
-- name: get current Release
+ - name: get current Release
    command: uname -r
    register: currentRelease
 
@@ -16,6 +16,7 @@
  
  - name: google sdk
    dnf: name={{item}} state=installed
+   with_items:
     - google-cloud-sdk
     - google-cloud-sdk-app-engine-python
     - google-cloud-sdk-app-engine-python-extras

@@ -22,7 +22,6 @@
    dnf: name="{{ item }}" state=present
    with_items:
     - docker-ce
-    - python-docker-py
 
 # - name: pull docker images
 #  docker_image:

@@ -1,7 +1,7 @@
  - name: get Fedora current Release
    command: rpm -E %fedora
    register: fedoraRelease
- 
+
  - name: install the rpmfusion repo packages
    dnf: name={{ item }}
     state=present
@@ -10,7 +10,9 @@
      - http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ fedoraRelease['stdout'] }}.noarch.rpm
 
  - name: install dev lib(required for YouCompleteMe)
-   dnf: name={{item}} state=installed
+   dnf: name={{item}}
+    state=installed
+   with_items:
     - automake
     - gcc
     - gcc-c++
@@ -33,10 +35,8 @@
     - banner
     - wget
     - nano
-    - ipython
     - git
     - tig
-    - gitk
     - tmux
     - vim-enhanced
 
@@ -52,10 +52,7 @@
    dnf: name={{item}} state=installed
    with_items:
     - htop
-    - ntop
     - nmap
     - setools-console
     - remmina
     - livecd-tools
-
-
