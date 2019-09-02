@@ -15,11 +15,11 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 ### add the following line in the .zshrc
 export AWS_PROFILE="default"
 #export PS1="\[\e[01;31m\][\$AWS_PROFILE]\[\e[00m\]$PS1"
-export PS1="[\$AWS_PROFILE] $PS1"
+#export PS1="[\$AWS_PROFILE] $PS1"  	# replaced with Zsh style
 
 
 ## add users to docker group
-/etc/groups
+/etc/group
 
 ## install postman
 this operation has to be done in the user context
@@ -47,3 +47,6 @@ copy and setup default configuration files  :
    - .gitconfig
    - .bashrc
    - .zshrc
+   - .aws
+   - .ssh
+   - .mozilla
