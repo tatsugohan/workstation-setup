@@ -1,27 +1,24 @@
  - name: install docker repo
    copy: src=additional-repo.repo dest=/etc/yum.repos.d/
 
- - name: remove the fedora docker packages 
-   dnf: name={{item}} state=absent autoremove=yes
-   with_items:
-     - docker-common 
-     - docker-selinux 
-     - docker-engine-selinux
-     - docker-engine
-     - docker 
+ - name: remove the fedora docker packages
+   dnf:
+     name: ['docker-common', 'docker-selinux', 'docker-engine-selinux', 'docker-engine', 'docker']
+     state: absent
+     autoremove: yes
 
- - name : docker repo 
-   dnf: 
+ - name: docker repo
+   dnf:
      name: dnf-plugins-core
-     state: present
+     state: installed
 
  - name: install docker repository
    command: dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
  
  - name: install docker
-   dnf: name="{{ item }}" state=present
-   with_items:
-    - docker-ce
+   dnf:
+     name: ['docker-ce']
+     state: installed
 
 # - name: pull docker images
 #  docker_image:

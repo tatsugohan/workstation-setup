@@ -24,7 +24,7 @@ execution du playbook
 git clone https://github.com/tatsugohan/workstation-setup.git
 cd workstation-setup
 
-sudo ansible-playbook local.yaml
+sudo ansible-playbook local.yml
 ```
 
 note: All of the following  steps require an internet connexion 

@@ -1,23 +1,23 @@
  - name: manage local repository arborescence
-   group: 
+   group:
     name: gituser
     state: present
 
- - file: 
+ - file:
     path: /REPOS/public
     state: directory
     mode: 0755
     owner: root
     group: gituser
  
- - file: 
+ - file:
     path: /REPOS/private
     state: directory
     mode: 0755
     owner: root
     group: gituser
  
- - file: 
+ - file:
     path: /REPOS/pro
     state: directory
     mode: 0755

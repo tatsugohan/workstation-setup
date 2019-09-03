@@ -2,57 +2,37 @@
    command: rpm -E %fedora
    register: fedoraRelease
 
- - name: install the rpmfusion repo packages
-   dnf: name={{ item }}
-    state=present
-   with_items:
-     - http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ fedoraRelease['stdout'] }}.noarch.rpm
-     - http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ fedoraRelease['stdout'] }}.noarch.rpm
-
  - name: install dev lib(required for YouCompleteMe)
-   dnf: name={{item}}
-    state=installed
-   with_items:
-    - automake
-    - gcc
-    - gcc-c++
-    - kernel-devel
-    - cmake
+   dnf:
+     name: ['automake', 'gcc', 'gcc-c++', 'kernel-devel', 'cmake']
+     state: installed
+
+ - name: install the rpmfusion repo packages
+   dnf:
+     name: http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ fedoraRelease['stdout'] }}.noarch.rpm
+     state: installed
+
+ - name: install the rpmfusion nonfree repo packages
+   dnf:
+     name: http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ fedoraRelease['stdout'] }}.noarch.rpm
+     state: installed
 
  - name: install framework dev packages
-   dnf: name={{item}} state=installed
-   with_items:
-    - go
-    - jq
-    - jre
-    - javaws
-    - python2-virtualenv
-    - powerline-fonts
+   dnf:
+     name: ['go', 'jq', 'jre', 'javaws', 'python2-virtualenv', 'powerline-fonts']
+     state: installed
 
  - name: install edition packages
-   dnf: name={{item}} state=installed
-   with_items:
-    - banner
-    - wget
-    - nano
-    - git
-    - tig
-    - tmux
-    - vim-enhanced
+   dnf:
+     name: ['banner', 'wget', 'nano', 'git', 'tig', 'tmux', 'vim-enhanced']
+     state: installed
 
  - name: install desktop packages
-   dnf: name={{item}} state=installed
-   with_items:
-    - keepass
-    - calibre
-    - inkscape
-    - vlc
+   dnf:
+     name: ['keepass', 'calibre', 'inkscape', 'vlc']
+     state: installed
 
  - name: install admin packages
-   dnf: name={{item}} state=installed
-   with_items:
-    - htop
-    - nmap
-    - setools-console
-    - remmina
-    - livecd-tools
+   dnf:
+     name: ['htop', 'nmap', 'setools-console', 'remmina', 'livecd-tools']
+     state: installed

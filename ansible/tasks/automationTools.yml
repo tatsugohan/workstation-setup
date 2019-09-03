@@ -6,32 +6,19 @@
    register: currentRelease
 
  - name: virtualisation and automation
-   dnf: name={{item}} state=installed
-   with_items:
-    - awscli
-    - vagrant
-    - kernel-devel-{{ currentRelease['stdout'] }}
-    - VirtualBox
-    - akmod-VirtualBox
- 
+   dnf:
+     name: ['awscli','vagrant',"kernel-devel-{{ currentRelease['stdout'] }}",'VirtualBox', 'akmod-VirtualBox','conda']
+     state: installed
+
  - name: google sdk
-   dnf: name={{item}} state=installed
-   with_items:
-    - google-cloud-sdk
-    - google-cloud-sdk-app-engine-python
-    - google-cloud-sdk-app-engine-python-extras
-    - google-cloud-sdk-datalab
-    - google-cloud-sdk-datastore-emulator
-    - google-cloud-sdk-cbt
-    - google-cloud-sdk-cloud-build-local
-    - google-cloud-sdk-pubsub-emulator
-    - kubectl
+   dnf:
+     name: [ "google-cloud-sdk", "google-cloud-sdk-app-engine-python", "google-cloud-sdk-app-engine-python-extras", "google-cloud-sdk-datalab", "google-cloud-sdk-datastore-emulator", "google-cloud-sdk-cbt", "google-cloud-sdk-cloud-build-local", "google-cloud-sdk-pubsub-emulator", "kubectl"]
 
  - name: register virtualisation modules
    command: akmods --kernels {{ currentRelease['stdout'] }}
  
  - name: relaunch module service
-   service:  
+   service: 
       name: systemd-modules-load.service
       state: restarted
 

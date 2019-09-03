@@ -4,8 +4,8 @@
  - name: import Google Chrome signing key
    rpm_key: key=https://dl-ssl.google.com/linux/linux_signing_key.pub state=present
 
- - name: install packages
-   dnf: name={{item}} state=installed
-   with_items:
-    - google-chrome-stable
+ - name: install chrome package
+   dnf:
+     name: google-chrome-stable
+     state: installed
 
