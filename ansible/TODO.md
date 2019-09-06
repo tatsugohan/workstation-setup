@@ -49,4 +49,7 @@ copy and setup default configuration files  :
    - .zshrc
    - .aws
    - .ssh
-   - .mozilla
+   - .mozilla/
+   - .gitignore_global
+
+git config --global core.excludesfile ~/.gitignore_global
