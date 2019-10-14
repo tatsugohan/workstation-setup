@@ -53,3 +53,9 @@ copy and setup default configuration files  :
    - .gitignore_global
 
 git config --global core.excludesfile ~/.gitignore_global
+
+## Install nodejs 
+curl -sL https://rpm.nodesource.com/setup_12.x | bash - no
+dnf -y install nodejs
+dnf -y install gcc-c++ make 
+npm install -g @angular/cli
