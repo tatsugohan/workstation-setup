@@ -54,6 +54,11 @@ copy and setup default configuration files  :
 
 git config --global core.excludesfile ~/.gitignore_global
 
+# manange cache in terraform
+mkdir -p ~/.terraform.d/plugin-cache
+echo plugin_cache_dir   = \"$HOME/.terraform.d/plugin-cache\" > ~/.terraformrc 
+
+
 ## Install nodejs 
 curl -sL https://rpm.nodesource.com/setup_12.x | bash - no
 dnf -y install nodejs
