@@ -4,7 +4,7 @@
 
  - name: install dev lib(required for YouCompleteMe)
    dnf:
-     name: ['automake', 'gcc', 'gcc-c++', 'kernel-devel', 'cmake']
+     name: ['automake', 'gcc', 'gcc-c++', 'kernel-devel', 'cmake', 'make', 'nodejs']
      state: installed
 
  - name: install the rpmfusion repo packages
@@ -24,7 +24,7 @@
 
  - name: install edition packages
    dnf:
-     name: ['banner', 'wget', 'nano', 'git', 'tig', 'tmux', 'vim-enhanced']
+     name: ['banner', 'wget', 'nano', 'git', 'tig', 'tmux', 'vim-enhanced','python3-argcomplete']
      state: installed
 
  - name: install desktop packages

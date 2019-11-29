@@ -59,8 +59,12 @@ mkdir -p ~/.terraform.d/plugin-cache
 echo plugin_cache_dir   = \"$HOME/.terraform.d/plugin-cache\" > ~/.terraformrc 
 
 
-## Install nodejs 
+#  conda auto completion - 
+## add the following command in your ~/.zshrc file
+eval "$(register-python-argcomplete conda)"
+
+###############################################################
+#### ROOT  CONTEXT
+## Install nodejs  -with root access
 curl -sL https://rpm.nodesource.com/setup_12.x | bash - no
-dnf -y install nodejs
-dnf -y install gcc-c++ make 
 npm install -g @angular/cli
