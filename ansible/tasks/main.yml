@@ -19,7 +19,7 @@
 
  - name: install framework dev packages
    dnf:
-     name: ['go', 'jq', 'jre', 'javaws', 'python2-virtualenv', 'powerline-fonts']
+     name: ['go', 'jq', 'jre', 'javaws', 'python2-virtualenv', 'powerline-fonts','python3-tkinter']
      state: installed
 
  - name: install edition packages
