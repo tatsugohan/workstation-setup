@@ -7,7 +7,7 @@
 
  - name: virtualisation and automation
    dnf:
-     name: ['awscli','vagrant',"kernel-devel-{{ currentRelease['stdout'] }}",'VirtualBox', 'akmod-VirtualBox','conda']
+     name: ['awscli','vagrant',"kernel-devel-{{ currentRelease['stdout'] }}",'conda']
      state: installed
 
  - name: google sdk

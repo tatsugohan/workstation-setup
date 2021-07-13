@@ -7,6 +7,8 @@ utilisation de ansible pour réaliser toute la configuration post-install d'une 
 installation des pre-requis sous root : détaillé dans le fichier REQUIREMENTS.MD
 
 require root account on host server:
+
+```
 	dnf install ansible  (install python2 … :’(   )
 	systemctl start sshd 
 	echo 127.0.0.1 >> /etc/ansible/hosts
@@ -14,6 +16,7 @@ require root account on host server:
 	# connection test
 	ssh 127.0.0.1 
 	ansible all -m ping --ask-pass
+```
 
 ## Usage - with ansible-pull
 

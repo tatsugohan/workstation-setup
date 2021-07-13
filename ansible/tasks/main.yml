@@ -4,7 +4,7 @@
 
  - name: install dev lib(required for YouCompleteMe)
    dnf:
-     name: ['automake', 'gcc', 'gcc-c++', 'kernel-devel', 'cmake', 'make', 'nodejs']
+     name: ['automake', 'gcc', 'gcc-c++', 'kernel-devel', 'cmake', 'make', 'nodejs','zsh']
      state: installed
 
  - name: install the rpmfusion repo packages
@@ -19,7 +19,7 @@
 
  - name: install framework dev packages
    dnf:
-     name: ['go', 'jq', 'jre', 'javaws', 'python2-virtualenv', 'powerline-fonts','python3-tkinter']
+     name: ['go', 'jq', 'jre', 'javaws', 'powerline-fonts','python3-tkinter']
      state: installed
 
  - name: install edition packages
